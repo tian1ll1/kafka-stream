@@ -1,0 +1,11 @@
+{
+  "type": "record",
+  "name": "Activity",
+  "namespace": "com.example.model",
+  "fields": [
+    {"name": "userId", "type": "string"},
+    {"name": "activityType", "type": "string"},
+    {"name": "timestamp", "type": "long"},
+    {"name": "data", "type": {"type": "map", "values": "string"}}
+  ]
+} 

@@ -1,0 +1,38 @@
+spring:
+  application:
+    name: kafka-stream-enrichment
+
+kafka:
+  bootstrap-servers: localhost:9092
+  streams:
+    application-id: data-enrichment-app
+    auto-offset-reset: earliest
+    properties:
+      schema.registry.url: http://localhost:8081
+      processing.guarantee: exactly_once_v2
+      default.key.serde: org.apache.kafka.common.serialization.Serdes$StringSerde
+      default.value.serde: io.confluent.kafka.streams.serdes.avro.SpecificAvroSerde
+
+app:
+  kafka:
+    topics:
+      input-stream: user_activities
+      input-table: user_profiles
+      error: processing_errors
+      enriched: enriched-output
+    retry:
+      interval-minutes: 5
+      max-attempts: 3
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,metrics,prometheus
+  metrics:
+    export:
+      prometheus:
+        enabled: true
+  endpoint:
+    health:
+      show-details: always 

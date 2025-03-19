@@ -1,0 +1,13 @@
+{
+  "type": "record",
+  "name": "ErrorMessage",
+  "namespace": "com.example.model",
+  "fields": [
+    {"name": "originalKey", "type": "string"},
+    {"name": "originalValue", "type": "bytes"},
+    {"name": "errorMessage", "type": "string"},
+    {"name": "timestamp", "type": "long"},
+    {"name": "retryCount", "type": "int"},
+    {"name": "lastRetryTime", "type": ["null", "long"], "default": null}
+  ]
+} 

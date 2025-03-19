@@ -1,0 +1,12 @@
+{
+  "type": "record",
+  "name": "Profile",
+  "namespace": "com.example.model",
+  "fields": [
+    {"name": "userId", "type": "string"},
+    {"name": "name", "type": "string"},
+    {"name": "email", "type": "string"},
+    {"name": "attributes", "type": {"type": "map", "values": "string"}},
+    {"name": "lastUpdated", "type": "long"}
+  ]
+} 
